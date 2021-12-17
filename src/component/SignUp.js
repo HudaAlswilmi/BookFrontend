@@ -1,12 +1,16 @@
 import axios from "axios";
+//الاكسيوز لجلب البيانات من الباك اند
 import React, { useState } from "react";
+//يوز ستيت اسخدمها علشان اخزن قيم للمتغيرات
 import { useHistory } from "react-router";
+//يوز هيستوري استخدمها للتنقل بين الصفحات بعد تحقق شرط معين
 
 export default function SinUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const history = useHistory();
+
   const changeName = (e) => {
     setName(e.target.value);
   };
@@ -17,26 +21,30 @@ export default function SinUp() {
     setPass(e.target.value);
   };
   const AddUser = async () => {
-    const res = await axios.post("https://tuwiq-projecthuda.herokuapp.com/SignUp", {
+    const res = await axios.post("http://localhost:5000/SignUp", {
       name,
       email,
       pass,
     });
+    console.log(res.data);
+    //اعرف متغير يسوي أضافة يجيب البيانات من الباك اند
     if (res.status === 201) {
       history.push("/logIn");
+      //أذاكان الادخال صحيح انتقل لل لوق ان
     }
   };
   return (
     <div className="loginbox">
+      <h1>SignUp</h1>
       <input
         onChange={(e) => {
           changeName(e);
         }}
         type="text"
         placeholder="name"
-      /> 
-      <br/>
-      <br/>
+      />
+      <br />
+      <br />
 
       <input
         onChange={(e) => {
@@ -45,9 +53,8 @@ export default function SinUp() {
         type="text"
         placeholder="email"
       />
-            <br/>
-            <br/>
-
+      <br />
+      <br />
 
       <input
         onChange={(e) => {
@@ -55,17 +62,16 @@ export default function SinUp() {
         }}
         type="pass"
         placeholder="pass"
-      /> 
-            <br/>
-            <br/>
-
+      />
+      <br />
+      <br />
 
       <button
         onClick={() => {
-            AddUser();
+          AddUser();
         }}
       >
-        تسجيل دخول 
+        تسجيل دخول
       </button>
     </div>
   );

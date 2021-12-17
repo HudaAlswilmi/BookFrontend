@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 
 
-//
 export default function LogIn({ setToken }) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -17,15 +16,19 @@ export default function LogIn({ setToken }) {
   };
   const logIn = async () => {
     try {
-      const res = await axios.post("https://tuwiq-projecthuda.herokuapp.com/logIn", {
+      const res = await axios.post("http://localhost:5000/logIn", {
         email,
         pass,
       });
-      console.log(res.data);
       setToken(res.data.token);
-      history.push("/Store");
+      console.log(res.data.token);
+      // بعد ما اتاكد ان التسجيل صحيح 
+//يجيب بيانات اللوق ان 
+//اسوي تسجيل دخول 
+      history.push("/BooK");
+      //أذا كان صحيح ينتقل للصفحه البوك 
     } catch (err) {
-      console.log("aa");
+      console.log("errrror");
     }
   };
   return (

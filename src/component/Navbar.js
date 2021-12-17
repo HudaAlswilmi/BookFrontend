@@ -1,29 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {BsStar} from "react-icons/bs";
-export default function Navbar ({ token, setToken }){
-return (
-<div>
-{token ? (
+import { BsStar } from "react-icons/bs";
+import "./Nav.css";
+export default function Navbar({ token, setToken }) {
+  return (
+    <div>
+      {token ? (
         <ul>
-          <li>
-            <Link to="/Favorite">
-              <BsStar />
-            </Link>
-          </li>
-          <li>
-            <Link to="/Books">الرئيسية</Link>
-          </li>
-          <li>
-            <Link to="/BooK">كٌتبي </Link>
-          </li>
           <li>
             <Link
               onClick={() => {
                 setToken("");
               }}
               to="/logIn"
-            >  تسجيل الخروج  </Link>
+            >
+              {" "}
+              تسجيل الخروج{" "}
+            </Link>
+          </li>
+          <li>
+            <Link to="/Favorite">
+              <BsStar />
+            </Link>
+          </li>
+          <li>
+            <Link to="/Books">الكتب الصوتيه </Link>
+          </li>
+          <li>
+            <Link to="/Booking">الكتب المقروءه </Link>
+          </li>
+          <li>
+            <Link to="/Bo0oK">الرئيسية </Link>
           </li>
         </ul>
       ) : (
@@ -32,9 +39,10 @@ return (
             <Link to="/logIn">تسجيل الدخول </Link>
           </li>
           <li>
-            <Link to="/SinUp">تسجيل جديد </Link>
+            <Link to="/SignUp">تسجيل جديد </Link>
           </li>
         </ul>
       )}
-</div>
-)}
+    </div>
+  );
+}
