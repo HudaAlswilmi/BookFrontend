@@ -154,12 +154,7 @@ export default function Books({ token }) {
       }
   };
 
-  const gotoBook=async(id)=>{
-  
-    history.push("/Book")
-    console.log(" you go to the boook");
 
-  }
 
   return (<>
         <h1> $$    مكتبة أبجد  $$  </h1>
@@ -174,7 +169,7 @@ export default function Books({ token }) {
       {bookAree.map((elemen, i) => {
         return (
           <div  className="card">
-            <img onClick={()=>{gotoBook(elemen._id)}} className="imgCard" src={elemen.url} />
+            <img  className="imgCard" src={elemen.url} />
 
             <p className="nam1">{elemen.name}</p>
             <AiFillPlayCircle
