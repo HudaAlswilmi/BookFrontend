@@ -1,10 +1,9 @@
 ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
-    background-color: rgb(241, 247, 160);
+    background-color: rgb(240, 212, 205);
     color: black;
+   text-align: center;
   }
   
   li {
@@ -20,6 +19,6 @@ ul {
   }
   
   li a:hover {
-    background-color:rgb(236, 136, 4);
+    background-color:rgb(245, 129, 120);
   }
   

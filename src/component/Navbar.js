@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BsStar } from "react-icons/bs";
+import { BsFillStarFill } from "react-icons/bs";
 import "./Nav.css";
 export default function Navbar({ token, setToken }) {
   return (
@@ -20,7 +20,12 @@ export default function Navbar({ token, setToken }) {
           </li>
           <li>
             <Link to="/Favorite">
-              <BsStar />
+              <BsFillStarFill /> كُتبي
+            </Link>
+          </li>
+          <li>
+            <Link to="/addBook">
+              أضافة كتاب  
             </Link>
           </li>
           <li>
@@ -29,9 +34,7 @@ export default function Navbar({ token, setToken }) {
           <li>
             <Link to="/Booking">الكتب المقروءه </Link>
           </li>
-          <li>
-            <Link to="/Bo0oK">الرئيسية </Link>
-          </li>
+         
         </ul>
       ) : (
         <ul>
@@ -40,7 +43,11 @@ export default function Navbar({ token, setToken }) {
           </li>
           <li>
             <Link to="/SignUp">تسجيل جديد </Link>
+          </li> 
+          <li>
+            <Link to="/Home">الرئيسية </Link>
           </li>
+          
         </ul>
       )}
     </div>

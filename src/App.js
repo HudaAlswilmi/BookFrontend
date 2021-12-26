@@ -7,6 +7,8 @@ import Login from "./component/Login"
 import SignUP from "./component/SignUp"
 import  {Route} from "react-router-dom";
 import Booking from "./component/Booking";
+import Home from "./component/Home";
+import AddBook from "./component/AddBook";
 function App() {
 const [token, setToken] = useState("");
 
@@ -50,6 +52,20 @@ const [token, setToken] = useState("");
           return <Favorite token={token} />;
         }}
       />
+      <Route
+        exact
+        path="/addBook"
+        render={() => {
+          return <AddBook token={token} />;
+        }}
+      />
+       <Route
+        exact
+        path="/Home"
+        render={() => {
+          return <Home token={token} />;
+        }}
+        />
     </div>
   );
 }

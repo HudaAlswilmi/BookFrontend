@@ -4,7 +4,7 @@ import React, { useState } from "react";
 //يوز ستيت اسخدمها علشان اخزن قيم للمتغيرات
 import { useHistory } from "react-router";
 //يوز هيستوري استخدمها للتنقل بين الصفحات بعد تحقق شرط معين
-
+import "./Login.css"
 export default function SinUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ export default function SinUp() {
   };
   return (
     <div className="loginbox">
-      <h1>SignUp</h1>
+      <h1>تسجيل جديد</h1>
       <input
         onChange={(e) => {
           changeName(e);

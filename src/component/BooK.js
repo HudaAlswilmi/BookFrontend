@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export default function BooK({token}) {
   const [Boook, setBoook] = useState([]);
   const {id} = useParams()
-  const [input, setInput] = useState('');
+  // const [input, setInput] = useState('');
   useEffect(async () => {
     const res = await axios.get(`http://localhost:3000/Book/${id}`,{
         headers: { authorization: "Bearer " + token }
