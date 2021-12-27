@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { AiFillPlayCircle } from "react-icons/ai";
-import { BsStopCircleFill } from "react-icons/bs";
-// import {BsFillHeartFill} from "react-icons/bs";
+import BookAudio from "./BookAudio";
+// import { useHistory } from "react-router-dom";
+//صفحة بيانات الكتب الصوتيه 
 import axios from "axios";
 import "./Books.css";
 
 export default function Books({ token }) {
   const [Books, setBooks] = useState([]);
-  const history = useHistory();
+  // const history = useHistory();
 
   console.log("book");
 
@@ -22,23 +21,23 @@ export default function Books({ token }) {
     setBooks(res.data);
     console.log("b9999k");
   }, []);
-  let audio
+  // let audio
 
-  const play = (url, i, id) => {
-    console.log(id, "iddd");
-    console.log(url, "ur");
-    console.log(i, "iiiiiiiii");
-    audio= new Audio(url);
-    audio.play();
-  };
+  // const play = (url, i, id) => {
+  //   console.log(id, "iddd");
+  //   console.log(url, "ur");
+  //   console.log(i, "iiiiiiiii");
+  //   audio= new Audio(url);
+  //   audio.play();
+  // };
 
-  const pause = () => {
-    console.log("iiiiiiiiiiiiiii");
-    if(audio) 
+  // const pause = () => {
+  //   console.log("iiiiiiiiiiiiiii");
+  //   if(audio) 
 
-    audio.pause();
-    console.log("huuuuuuuuuuuuuuuuuuu");
-  };
+  //   audio.pause();
+  //   console.log("huuuuuuuuuuuuuuuuuuu");
+  // };
 
   return (
     <>
@@ -51,19 +50,8 @@ export default function Books({ token }) {
               <img className="imgCard" src={elemen.img} />
 
               <p className="nam1">{elemen.name}</p>
-              <AiFillPlayCircle
-                className="playIcon"
-                onClick={() => {
-                  play(elemen.url, i, elemen._id);
-                }}
-              ></AiFillPlayCircle>
-              <BsStopCircleFill
-                className="playIcon"
-                onClick={() => {
-                  pause(elemen.url, i, elemen._id);
-                }}
-              ></BsStopCircleFill>
-                
+              <BookAudio url ={elemen.url} />
+        
             </div>
           );
         })}

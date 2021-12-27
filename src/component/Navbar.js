@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BsFillStarFill } from "react-icons/bs";
+import { BsFillHeartFill } from "react-icons/bs";
 import "./Nav.css";
 export default function Navbar({ token, setToken }) {
   return (
@@ -20,7 +20,7 @@ export default function Navbar({ token, setToken }) {
           </li>
           <li>
             <Link to="/Favorite">
-              <BsFillStarFill /> كُتبي
+              <BsFillHeartFill /> كُتبي
             </Link>
           </li>
           <li>

@@ -9,6 +9,7 @@ import  {Route} from "react-router-dom";
 import Booking from "./component/Booking";
 import Home from "./component/Home";
 import AddBook from "./component/AddBook";
+import Book  from "./component/Book"
 function App() {
 const [token, setToken] = useState("");
 
@@ -23,6 +24,13 @@ const [token, setToken] = useState("");
           return <Books token={token} />;
         }}
       />
+          <Route
+        exact
+        path="/Book/:id"
+        render={() => {
+          return <Book token={token} />;
+        }}
+      />
         <Route
         exact
         path="/Booking"
@@ -30,13 +38,7 @@ const [token, setToken] = useState("");
           return <Booking token={token} />;
         }}
       />
-       <Route
-        exact
-        path="/Favorite/:id"
-        render={() => {
-          return <Favorite token={token} />;
-        }}
-      />
+   
       <Route
         exact
         path="/Login"
@@ -47,7 +49,7 @@ const [token, setToken] = useState("");
       <Route exact path="/SignUP" component={SignUP} />
       <Route
         exact
-        path="/BooK/:id"
+        path="/Favorite"
         render={() => {
           return <Favorite token={token} />;
         }}

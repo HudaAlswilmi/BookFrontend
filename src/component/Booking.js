@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import {BsFillStarFill} from "react-icons/bs"
+import {BsFillHeartFill} from "react-icons/bs"
 import {AiTwotoneDelete} from "react-icons/ai"
 import axios from "axios";
 import "./Books.css";
+//صفحة الكتب المقروءة 
 export default function Booking({ token }) {
   const [Books, setBooking] = useState([]);
-  // const [name, setneme] = useState("")
-  // const [img, setimg] = useState("")
-  // const [descripion, setdescripion] = useState("")
-  // const [url, seturl] = useState("")
+  const [search, setsearch] = useState("");
+const [name, setname] = useState("")
+const [descripion, setdescripion] = useState("")
+const [url, seturl] = useState("")
+const [img, setimg] = useState("")
   const history = useHistory();
 
   console.log("boooooooooooooooook");
@@ -24,10 +26,7 @@ export default function Booking({ token }) {
     setBooking(res.data);
     console.log("b9999k");
   }, []);
-  const gotoBook = async (id) => {
-    history.push("/Book");
-    console.log(" you go to the boook");
-  };
+
   const deleteBook = async (id, index) => {
     console.log("jjjjjjjjjjj");
     const deletes = await
@@ -43,24 +42,53 @@ export default function Booking({ token }) {
       setBooking(copyBook);
     }
   }
-  const gotoFevoret = async (id) => {
-    history.push("/Favorite");
-    console.log(" you go to the Favorite");
+  const search1 = () => {
+    const search1 = Books.filter((element) => {
+      if (element.name.toLowerCase().includes(search.toLocaleLowerCase())) {
+        return element;
+      }
+      console.log(element);
+    });
+    setBooking(search1);
+    return search1;
   };
-//   const postBook = async ()=>{
-//     const result = await axios.post( "http://localhost:5000/Book",{
-//     name,
-//     img,
-//     descripion,
-//     url,
-//   }
-//       , { headers: { authorization: `Bearer ${token}` }},
-// );
 
-//   }
+
+  const gotoBook = async (id) => {
+    history.push(`/Book/${id}`);
+    console.log(" you go to the boook");
+  };
+
+
+const searchTarget = (e) => {
+  setsearch(e.target.value);
+};
+
+const AddlikBook = async (id) => {
+  const result = await axios.post(
+    "http://localhost:5000/Favorite",
+
+    { headers: { authorization: `Bearer ${token}` } }
+  );
+  if (result.status === 201) {
+    history.push("/Favorite");
+};
+}
 
   return (
     <div className="cards">
+                 <input
+    id="inputSearch"
+    placeholder="search"
+    onChange={(e) => {
+      searchTarget(e);
+    }}
+  />
+      <button id="searchbtn"
+      onClick={() => {
+        search1();
+      }}
+    > بحث </button>
       {Books.map((ele, i) => {
         console.log("nnnnnnnnnnnnn");
         return (
@@ -78,7 +106,10 @@ export default function Booking({ token }) {
             <a href={ele.url} target="_blank">
 للقرأة أضغط هنا             </a>
             <br/>
-            <BsFillStarFill onClick={()=>{gotoFevoret(ele._id)}}></BsFillStarFill>
+            <BsFillHeartFill
+                className="HEART"
+            onClick={()=>AddlikBook(ele._id)}
+              />
             <button
               onClick={() => {
                 deleteBook(ele._id);
@@ -86,6 +117,7 @@ export default function Booking({ token }) {
             ><AiTwotoneDelete/>
               حذف
             </button>
+ 
           </div>
         );
       })}

@@ -5,7 +5,7 @@
     margin: auto;
     text-align: center;
     font-family: arial;
-    width: 28%;
+    width: 38%;
     border: 1px solid black;
     margin-top: 30px;
     transition: 1s;
@@ -15,8 +15,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-/* height: 1000px; */
-/* width: 1000px; */
+
+
 }
   button {
     border: none;

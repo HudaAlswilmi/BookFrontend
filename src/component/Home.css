@@ -32,3 +32,11 @@ img {vertical-align: middle;}
   background-color: #f1f1f1;
   color: black;
 } */
+/* @media screen and (min-width: 992px) {
+  .menu{
+      font-size: 16px;
+  }
+  .menu-group {
+      grid-template-columns: repeat(2 , 1fr);
+  }
+} */
