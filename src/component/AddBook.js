@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 
 //أضافة كتب 
@@ -8,6 +10,8 @@ export default function AddBook({token}) {
   const [img, setimg] = useState("");
   const [descripion, setdescripion] = useState("");
   const [url, seturl] = useState("");
+  const history = useHistory();
+
   const addname = (e) => {
     setneme(e.target.value);
   }
@@ -31,6 +35,8 @@ export default function AddBook({token}) {
       },
       { headers: { authorization: `Bearer ${token}` } }
     );
+    history.push(`/Booking`);
+    console.log(" you go to the boook");
   };
   return (
     <div className="card">   

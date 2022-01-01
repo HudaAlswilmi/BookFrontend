@@ -2,20 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillHeartFill } from "react-icons/bs";
 import "./Nav.css";
-export default function Navbar({ token, setToken }) {
+export default function Navbar({ token, setToken ,setisAdmin,isAdmin}) {
+
+  const logout =  ()=>{
+    setToken(""); localStorage.setItem("token", JSON.stringify(""));
+    setisAdmin(""); localStorage.setItem("isAdmin",JSON.stringify(""));
+  //stringify تقوم ب أستبدال القيمه الى قيمه أخرى 
+  }
   return (
     <div>
+      <nav>
       {token ? (
         <ul>
           <li>
             <Link
-              onClick={() => {
-                setToken("");
-              }}
+           onClick={() => {  logout(); }}
               to="/logIn"
             >
-              {" "}
-              تسجيل الخروج{" "}
+              تسجيل الخروج
             </Link>
           </li>
           <li>
@@ -23,11 +27,21 @@ export default function Navbar({ token, setToken }) {
               <BsFillHeartFill /> كُتبي
             </Link>
           </li>
-          <li>
+
+          {isAdmin == true ? <>
+            <li>
             <Link to="/addBook">
               أضافة كتاب  
             </Link>
           </li>
+          </> :""}
+        
+          {/* <li>
+            <Link to="/updetBook">
+              تعديل كتاب  
+            </Link>
+          </li> */}
+          
           <li>
             <Link to="/Books">الكتب الصوتيه </Link>
           </li>
@@ -50,6 +64,7 @@ export default function Navbar({ token, setToken }) {
           
         </ul>
       )}
+      </nav>
     </div>
   );
 }

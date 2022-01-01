@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import BookAudio from "./BookAudio";
-// import { useHistory } from "react-router-dom";
-//صفحة بيانات الكتب الصوتيه 
+import { useHistory } from "react-router-dom";
+import {BsFillHeartFill} from "react-icons/bs"
+//صفحة بيانات الكتب الصوتيه
 import axios from "axios";
 import "./Books.css";
 
 export default function Books({ token }) {
   const [Books, setBooks] = useState([]);
-  // const history = useHistory();
+  const history = useHistory();
 
   console.log("book");
 
@@ -21,23 +22,30 @@ export default function Books({ token }) {
     setBooks(res.data);
     console.log("b9999k");
   }, []);
-  // let audio
 
-  // const play = (url, i, id) => {
-  //   console.log(id, "iddd");
-  //   console.log(url, "ur");
-  //   console.log(i, "iiiiiiiii");
-  //   audio= new Audio(url);
-  //   audio.play();
-  // };
+  
 
-  // const pause = () => {
-  //   console.log("iiiiiiiiiiiiiii");
-  //   if(audio) 
+  const AddlikBook = async (id) => {
+    try {
+      const result = await axios.post(
+        `http://localhost:5000/Favorite/${id}`,
+        {},
+        {
+          headers: { authorization: "Bearer " + token },
+        }
+      );
+      console.log(result.data);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+    
+  };
 
-  //   audio.pause();
-  //   console.log("huuuuuuuuuuuuuuuuuuu");
-  // };
+
+  const gotoBook = async (id) => {
+    history.push(`/AudioBook/${id}`);
+    console.log(" you go to the boook");
+  };
 
   return (
     <>
@@ -47,11 +55,24 @@ export default function Books({ token }) {
         {Books.map((elemen, i) => {
           return (
             <div className="card">
-              <img className="imgCard" src={elemen.img} />
+              <div>
+              <img
+                className="imgCard"
+                src={elemen.img}
+                onClick={() => {
+                  gotoBook(elemen._id);
+                }}
+              />
+              </div>
+               <BsFillHeartFill
+                className="HEART"
+            onClick={()=>AddlikBook(elemen._id)}
+              />
+<div>
 
               <p className="nam1">{elemen.name}</p>
-              <BookAudio url ={elemen.url} />
-        
+               {/* <BookAudio url ={elemen.url} />  */}
+               </div>
             </div>
           );
         })}

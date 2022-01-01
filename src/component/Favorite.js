@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import ReactAudioPlayer from "react-audio-player";
+
 import axios from "axios";
 import "./Books.css"
 //  import { BsFillHeartFill } from "react-icons/bs";
 export default function Favirote({ token }) {
   const [Favorite, setFvairote] = useState([]);
-  const { id } = useParams();
+  const [url, seturl] = useState("")
 
-  // useEffect(async () => {
-  //   console.log(token,"token");
-  //   const like = await axios.get(`http://localhost:5000/Favorite/${id}`, {
-  //     headers: { authorization: "Bearer " + token },
-  //   });
-  //   setFvairote(like.data);
-  //   console.log(like.data,"likes array");
-  // }, []);
 
 
   useEffect(async () => {
@@ -32,7 +25,13 @@ export default function Favirote({ token }) {
   }, [token]);
 
 
-
+  const removeFav = async (id) => {
+    const res = await axios.delete(`http://localhost:5000/Favorite/${id}`, {
+      headers: { authorization: "Bearer " + token },
+    });
+    console.log(res.data);
+    setFvairote(res.data);
+  }
 
   return (
     <div className="cards" >     
@@ -45,6 +44,11 @@ export default function Favirote({ token }) {
           <a href={ele.url} target="_blank">
             للقرأة أضغط هنا
           </a>
+          {/* <ReactAudioPlayer src={url} autoPlay={false} controls /> */}
+
+          <button onClick={() => {
+        removeFav(ele._id);
+      }}>حذف </button>
         </div>
       )})}
  </div>

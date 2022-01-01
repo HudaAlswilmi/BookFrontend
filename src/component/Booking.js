@@ -3,15 +3,15 @@ import { useHistory } from "react-router-dom";
 import {BsFillHeartFill} from "react-icons/bs"
 import {AiTwotoneDelete} from "react-icons/ai"
 import axios from "axios";
-import "./Books.css";
+import "./Boking.css";
 //صفحة الكتب المقروءة 
-export default function Booking({ token }) {
+export default function Booking({ token}) {
   const [Books, setBooking] = useState([]);
   const [search, setsearch] = useState("");
-const [name, setname] = useState("")
-const [descripion, setdescripion] = useState("")
-const [url, seturl] = useState("")
-const [img, setimg] = useState("")
+// const [name, setname] = useState("")
+// const [descripion, setdescripion] = useState("")
+// const [url, seturl] = useState("")
+// const [img, setimg] = useState("")
   const history = useHistory();
 
   console.log("boooooooooooooooook");
@@ -64,16 +64,34 @@ const searchTarget = (e) => {
   setsearch(e.target.value);
 };
 
-const AddlikBook = async (id) => {
-  const result = await axios.post(
-    "http://localhost:5000/Favorite",
+// const AddlikBook = async (id) => {
+//   const result = await axios.post(
+//     "http://localhost:5000/Favorite",
 
-    { headers: { authorization: `Bearer ${token}` } }
-  );
-  if (result.status === 201) {
-    history.push("/Favorite");
+//     { headers: { authorization: `Bearer ${token}` } }
+//   );
+//   if (result.status === 201) {
+//     history.push("/Favorite");
+// };
+// }
+
+const AddlikBook = async (id) => {
+  try {
+    const result = await axios.post(
+      `http://localhost:5000/Favorite/${id}`,
+      {},
+      {
+        headers: { authorization: "Bearer " + token },
+      }
+    );
+    console.log(result.data);
+  } catch (error) {
+    console.log(error.response.data);
+  }
+  
 };
-}
+
+
 
   return (
     <div className="cards">
@@ -103,13 +121,14 @@ const AddlikBook = async (id) => {
               alr="No img"
             />
             <br/>
-            <a href={ele.url} target="_blank">
+            {/* <a href={ele.url} target="_blank">
 للقرأة أضغط هنا             </a>
-            <br/>
+            <br/> */}
             <BsFillHeartFill
                 className="HEART"
             onClick={()=>AddlikBook(ele._id)}
               />
+            
             <button
               onClick={() => {
                 deleteBook(ele._id);
@@ -117,7 +136,7 @@ const AddlikBook = async (id) => {
             ><AiTwotoneDelete/>
               حذف
             </button>
- 
+
           </div>
         );
       })}

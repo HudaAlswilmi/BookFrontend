@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import"./Login.css"
 
-export default function LogIn({ setToken }) {
+export default function LogIn({ setToken ,setisAdmin}) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const history = useHistory();
@@ -27,9 +27,37 @@ export default function LogIn({ setToken }) {
 //اسوي تسجيل دخول 
       history.push("/BooK");
       //أذا كان صحيح ينتقل للصفحه البوك 
-    } catch (err) {
+      if(res.data.payload.isAdmin== true){
+
+       setToken(res.data.token)
+       console.log("token",res.data.token);
+       localStorage.setItem("token",JSON.stringify(res.data.token))
+
+       setisAdmin(res.data.payload.isAdmin)
+       console.log("isAdmin",res.data.payload.isAdmin);
+       localStorage.setItem("isAdmin",JSON.stringify(res.data.payload.isAdmin))
+       history.push("/");
+
+   
+    }else if(res.data.payload.isAdmin== false){
+      
+      setToken(res.data.token)
+      console.log("token",res.data.token);
+      localStorage.setItem("token",JSON.stringify(res.data.token))
+
+      setisAdmin(res.data.payload.isAdmin)
+      console.log("isAdmin",res.data.payload.isAdmin);
+      localStorage.setItem("isAdmin",JSON.stringify(res.data.payload.isAdmin))
+      history.push("/Booking");
+
+  
+    } }
+    
+    
+    catch (err) {
       console.log("errrror");
     }
+
   };
   return (
     <div className="loginbox">
