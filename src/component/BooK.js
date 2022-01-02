@@ -18,7 +18,7 @@ export default function Book({ token , isAdmin}) {
     console.log(res.data, "dooooon");
   }, []);
   return (
-    <div>
+    <div className="Book1">
       <h1>{Book.name}</h1>
       <p>{Book.descripion}</p>
       <img src={Book.img} alr="No img" />
@@ -31,10 +31,6 @@ export default function Book({ token , isAdmin}) {
 
           </> :""}
 
-      <br />
-      {/* <p>{Book.name}</p>
-      <p>{Book.descripion}</p>
-      <img src={Book.url} alr=" NO img" /> */}
     </div>
   );
 }

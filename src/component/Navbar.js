@@ -22,11 +22,15 @@ export default function Navbar({ token, setToken ,setisAdmin,isAdmin}) {
               تسجيل الخروج
             </Link>
           </li>
+          { !isAdmin == true ? <>
+
           <li>
             <Link to="/Favorite">
               <BsFillHeartFill /> كُتبي
             </Link>
-          </li>
+          </li>       
+             </> :""}
+
 
           {isAdmin == true ? <>
             <li>

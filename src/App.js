@@ -12,7 +12,7 @@ import BookAudio from "./component/BookAudio";
 import AddBook from "./component/AddBook";
 import UpdetBook from "./component/UpdetBook"
 import Book  from "./component/Book"
-import FavoriteAudio from "./component/FavoriteAudio"
+import Commint from "./component/Commint"
 function App() { 
   
 const [token, setToken] = useState("");
@@ -70,16 +70,10 @@ if (!isAdmin) {
           return <Favorite token={token} />;
         }}
       />
-       <Route
-        exact
-        path="/FavoriteAudio"
-        render={() => {
-          return <FavoriteAudio token={token} />;
-        }}
-      />
+    
       <Route
         exact
-        path="/addBook"
+        path="/AddBook"
         render={() => {
           return <AddBook token={token} />;
         }}
@@ -96,6 +90,13 @@ if (!isAdmin) {
         path="/AudioBook/:id"
         render={() => {
           return <BookAudio token={token} />;
+        }}
+      />
+            <Route
+        exact
+        path="/Commint/:id"
+        render={() => {
+          return <Commint token={token} />;
         }}
       />
        <Route

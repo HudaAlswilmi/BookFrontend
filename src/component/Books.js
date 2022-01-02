@@ -51,7 +51,7 @@ export default function Books({ token }) {
     <>
       <h1> $$ مكتبة أبجد $$ </h1>
 
-      <div className="cards">
+      <div className="div1">
         {Books.map((elemen, i) => {
           return (
             <div className="card">

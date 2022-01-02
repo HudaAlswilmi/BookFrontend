@@ -16,13 +16,13 @@ nav ul li {
   background-color: rgb(200, 172, 252);
 }  */
 
-ul {
+/* ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
-}
+} */
 
 li {
   float: left;
@@ -40,17 +40,18 @@ li a:hover:not(.active) {
   background-color: #111;
 }
 
-.active {
+/* .active {
   background-color: #04AA6D;
-} 
+}  */
 
 ul {
     list-style-type: none;
     overflow: hidden;
-    background-color: rgb(240, 212, 205);
-    color: black;
+    background-color: rgb(138, 133, 133);
+    color: rgb(8, 8, 8);
    text-align: center;
        list-style-type: none;
+       text-align: center;
 
   }
   
@@ -61,7 +62,7 @@ ul {
   
   li a {
     display: block;
-    color: rgb(7, 0, 0);
+    color: rgb(212, 208, 208);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;

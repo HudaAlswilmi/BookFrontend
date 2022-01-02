@@ -6,6 +6,8 @@ import "./Books.css"
 //  import { BsFillHeartFill } from "react-icons/bs";
 export default function Favirote({ token }) {
   const [Favorite, setFvairote] = useState([]);
+  const [Books, setBooks] = useState([]);
+
   const [url, seturl] = useState("")
 
 
@@ -44,7 +46,6 @@ export default function Favirote({ token }) {
           <a href={ele.url} target="_blank">
             للقرأة أضغط هنا
           </a>
-          {/* <ReactAudioPlayer src={url} autoPlay={false} controls /> */}
 
           <button onClick={() => {
         removeFav(ele._id);
@@ -54,3 +55,12 @@ export default function Favirote({ token }) {
  </div>
 );
 }
+// {Books.map((ele, i) => {
+// return (
+//   <div className="Audio1">
+//     <h1>{Books.name}</h1>
+//     <p>{Books.descripion}</p>
+//     <img src={Books.img} alr="No img" />
+//     <ReactAudioPlayer src={url} autoPlay={false} controls />
+//   </div>
+// )})}

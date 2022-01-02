@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./BookAudio.css"
 //صفحة تشغسل الكتب الصوتيه
 
 export default function BookAudio({  token }) {
@@ -35,7 +36,7 @@ export default function BookAudio({  token }) {
   };
 
   return (
-    <div>
+    <div className="Audio1">
       <h1>{BookAudio.name}</h1>
       <p>{BookAudio.descripion}</p>
       <img src={BookAudio.img} alr="No img" />

@@ -64,16 +64,7 @@ const searchTarget = (e) => {
   setsearch(e.target.value);
 };
 
-// const AddlikBook = async (id) => {
-//   const result = await axios.post(
-//     "http://localhost:5000/Favorite",
 
-//     { headers: { authorization: `Bearer ${token}` } }
-//   );
-//   if (result.status === 201) {
-//     history.push("/Favorite");
-// };
-// }
 
 const AddlikBook = async (id) => {
   try {
@@ -95,18 +86,29 @@ const AddlikBook = async (id) => {
 
   return (
     <div className="cards">
-                 <input
+                 {/* <input
     id="inputSearch"
     placeholder="search"
     onChange={(e) => {
       searchTarget(e);
     }}
-  />
+  /><br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  
+  
       <button id="searchbtn"
       onClick={() => {
         search1();
       }}
     > بحث </button>
+     <br/>
+  <br/>
+  <br/> */}
+  <br/>
+  <br/>
       {Books.map((ele, i) => {
         console.log("nnnnnnnnnnnnn");
         return (
