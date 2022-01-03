@@ -9,6 +9,8 @@ export default function Book({ token , isAdmin}) {
   const { id } = useParams();
   const history = useHistory();
 
+
+
   useEffect(async () => {
     const res = await axios.get(`http://localhost:5000/Book/${id}`, {
       headers: { authorization: "Bearer " + token },
@@ -17,6 +19,10 @@ export default function Book({ token , isAdmin}) {
     setBook(res.data);
     console.log(res.data, "dooooon");
   }, []);
+
+
+
+
   return (
     <div className="Book1">
       <h1>{Book.name}</h1>

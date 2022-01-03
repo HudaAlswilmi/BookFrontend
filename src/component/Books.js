@@ -25,10 +25,10 @@ export default function Books({ token }) {
 
   
 
-  const AddlikBook = async (id) => {
+  const AddAudioLike = async (id) => {
     try {
       const result = await axios.post(
-        `http://localhost:5000/Favorite/${id}`,
+        `http://localhost:5000/Favorite2/${id}`,
         {},
         {
           headers: { authorization: "Bearer " + token },
@@ -66,7 +66,7 @@ export default function Books({ token }) {
               </div>
                <BsFillHeartFill
                 className="HEART"
-            onClick={()=>AddlikBook(elemen._id)}
+            onClick={()=>AddAudioLike(elemen._id)}
               />
 <div>
 

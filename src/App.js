@@ -12,7 +12,6 @@ import BookAudio from "./component/BookAudio";
 import AddBook from "./component/AddBook";
 import UpdetBook from "./component/UpdetBook"
 import Book  from "./component/Book"
-import Commint from "./component/Commint"
 function App() { 
   
 const [token, setToken] = useState("");
@@ -92,13 +91,7 @@ if (!isAdmin) {
           return <BookAudio token={token} />;
         }}
       />
-            <Route
-        exact
-        path="/Commint/:id"
-        render={() => {
-          return <Commint token={token} />;
-        }}
-      />
+    
        <Route
         exact
         path="/Home"

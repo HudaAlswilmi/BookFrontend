@@ -7,6 +7,7 @@ import "./BookAudio.css"
 
 export default function BookAudio({  token }) {
   const [BookAudio, setBookAudio] = useState([]);
+  const [Commint, setCommint] = useState("");
   const [url, seturl] = useState("")
   const { id } = useParams();
 
@@ -24,6 +25,28 @@ export default function BookAudio({  token }) {
 
   }, []);
 
+
+  const addComment=async()=>{
+    console.log("jjjjj");
+    try {
+      const result = await axios.post(
+          `http://localhost:5000/Commint/${id}`,
+          {
+              Commint:Commint
+          },
+          { headers: { authorization: "Bearer " + token } }
+        );console.log("mmmmmm");
+        setBookAudio({...BookAudio , Commint: result.data.Commint})
+        console.log("don");
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const changeComment=(e)=>{
+  setCommint(e.target.value)
+}
+
   const audio = new Audio(url);
   console.log(url, "url");
   const play = () => {
@@ -35,12 +58,17 @@ export default function BookAudio({  token }) {
     if (audio) audio.pause();
   };
 
+
+
+
   return (
     <div className="Audio1">
       <h1>{BookAudio.name}</h1>
       <p>{BookAudio.descripion}</p>
       <img src={BookAudio.img} alr="No img" />
       <ReactAudioPlayer src={url} autoPlay={false} controls />
+      <input onChange={(e)=>{changeComment(e)}} type="text" />
+      <button onClick={()=>{addComment()}}>اضف تعليق</button>
     </div>
   );
 }
