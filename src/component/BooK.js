@@ -24,9 +24,9 @@ export default function Book({ token , isAdmin}) {
 
 
   return (
-    <div className="Book1">
+    <div className="card">
       <h1>{Book.name}</h1>
-      <p>{Book.descripion}</p>
+      <p >{Book.descripion}</p>
       <img src={Book.img} alr="No img" />
       <br />
       <a href={Book.url} target="_blank">

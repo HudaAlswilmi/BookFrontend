@@ -1,13 +1,87 @@
-.Book1{
-    
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
     text-align: center;
-    font-family:initial;
-    width: 38%;
-    border: 1px solid black;
-    margin-top: 30px;
-    transition: 1s;
-text-align: center;
-      
-}
+    font-family: arial;
+    margin-top: 90px;
+
+  }
+
+
+  
+  .cards {
+    color: grey;
+    font-size: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+  
+  
+  
+  }
+  
+  .card button  {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: rgb(3, 3, 3);
+  }
+
+  .toogel {
+    background-color: black;
+    color:whitesmoke;
+    border-radius: 20px;
+    height: 50px;
+    width: 50px;
+  }
+  .HEART{
+    color: black;
+    border-radius: 40px;
+    height: 20px;
+    width: 20px;
+  }
+
+  .provail1{
+    border-radius: 20px ;
+    margin-top: 50px;
+  }
+  .about1{
+    border: black solid;
+    width: 700px;
+    height: 700px;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 600px;
+  }
+  h1{
+    text-align: center;
+  }
+  .order1{
+    margin-left: 20px;
+    color: navy;
+
+  }
+  .about2{
+    border: black solid;
+    width: 700px;
+    height: 700px;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 200px;
+  }

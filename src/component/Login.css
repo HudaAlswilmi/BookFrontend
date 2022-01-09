@@ -1,9 +1,9 @@
-
+body{
+    background-color: rgb(253, 251, 253);
+}
 .loginbox{
     width: 320px;
     height: 420px;
-    background: rgb(63, 61, 61);
-    color: #fff;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -11,9 +11,24 @@
     /* box-sizing: border-box; */
     padding: 70px 30px;
     text-align: center;
+    color:white;
+    font-family: initial;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-top: 50px;
+    border: double 1px black;
+    background-image: url(https://images.pexels.com/photos/2553427/pexels-photo-2553427.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-repeat: no-repeat;
+   
+    
 
 }
-.imgdiv{
+.logbut{
+    width: 320px;
+    height: 50px;
+color: white;
+background-color: black;
+}.imgdiv{
     width: 100px;
     height: 100px;
     border-radius: 50px;
@@ -32,7 +47,35 @@
 
 
 }
+.addBokdiv{
+    margin-top: 70px;
+    background-image: url(https://images.pexels.com/photos/2553427/pexels-photo-2553427.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    width: 320px;
+    height: 420px;
+ text-align: center; 
+    padding: 70px 30px;
+margin: auto;
+border: black 1px solid;
+border-radius: 10px;
+margin-top: 30px;
 
+}
+.but1{
+margin-top:  -40px;
+margin-bottom: 10px;
+width: 320px;
+height: 50px;
+color: white;
+background-color: black;
+}
+
+input{
+    margin-top:  -40px;
+margin-bottom: 10px;
+width: 320px;
+height: 30px;
+color: white;
+}
 
 
 

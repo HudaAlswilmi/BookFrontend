@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import {BsFillHeartFill} from "react-icons/bs"
 import {AiTwotoneDelete} from "react-icons/ai"
+
 import axios from "axios";
-import "./Boking.css";
+import "./Book.css";
 //صفحة الكتب المقروءة 
-export default function Booking({ token}) {
+export default function Booking({ token ,isAdmin}) {
   const [Books, setBooking] = useState([]);
   const [search, setsearch] = useState("");
 // const [name, setname] = useState("")
@@ -67,6 +68,7 @@ const searchTarget = (e) => {
 
 
 const AddlikBook = async (id) => {
+  console.log(id,"id");
   try {
     const result = await axios.post(
       `http://localhost:5000/Favorite/${id}`,
@@ -75,7 +77,7 @@ const AddlikBook = async (id) => {
         headers: { authorization: "Bearer " + token },
       }
     );
-    console.log(result.data);
+    console.log("oooollllllllll",result.data);
   } catch (error) {
     console.log(error.response.data);
   }
@@ -115,7 +117,7 @@ const AddlikBook = async (id) => {
           <div className="card" key={i}>
             <h1>{ele.name}</h1>
             <p>{ele.descripion}</p>
-            <img
+            <img 
               src={ele.img}
               onClick={() => {
                 gotoBook(ele._id);
@@ -123,21 +125,23 @@ const AddlikBook = async (id) => {
               alr="No img"
             />
             <br/>
-            {/* <a href={ele.url} target="_blank">
-للقرأة أضغط هنا             </a>
-            <br/> */}
+
+            
             <BsFillHeartFill
                 className="HEART"
             onClick={()=>AddlikBook(ele._id)}
               />
-            
-            <button
+             {!isAdmin == true ? <>
+              <button
               onClick={() => {
-                deleteBook(ele._id);
+                deleteBook(ele._id ,i);
               }}
             ><AiTwotoneDelete/>
-              حذف
+              حذف 
             </button>
+
+          </> :""}
+       
 
           </div>
         );

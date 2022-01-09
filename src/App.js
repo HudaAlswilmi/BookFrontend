@@ -1,4 +1,3 @@
-import "./App.css";
 import React  ,{ useState ,useEffect} from "react";
 import  {Route} from "react-router-dom"
 import Navbar from "./component/Navbar";
@@ -7,11 +6,12 @@ import Favorite from "./component/Favorite"
 import Login from "./component/Login"
 import SignUP from "./component/SignUp"
 import Booking from "./component/Booking";
-import Home from "./component/Home";
 import BookAudio from "./component/BookAudio";
 import AddBook from "./component/AddBook";
 import UpdetBook from "./component/UpdetBook"
 import Book  from "./component/Book"
+import About from "./component/About";
+import Home from "./component/Home"
 function App() { 
   
 const [token, setToken] = useState("");
@@ -22,6 +22,10 @@ useEffect(async() => {
     const token = JSON.parse(localStorage.getItem("token"))
     setToken(token)
   }
+  // تستخدم لإجراء تحويل على الكائن الناتج قبل إعادته ,JSON.parse 
+//localStorage.getItem تستخدم لتخزين قيمة على البراوزر 
+
+
 if (!isAdmin) {
     const isAdmin = JSON.parse(localStorage.getItem("isAdmin"))
     setisAdmin(isAdmin) 
@@ -39,6 +43,22 @@ if (!isAdmin) {
           return <Books token={token} />;
         }}
       />
+
+<Route
+        exact
+        path="/About"
+        render={() => {
+          return <About token={token}  isAdmin={isAdmin}/>;
+        }}
+      />
+      <Route
+        exact
+        path="/Home"
+        render={() => {
+          return <Home token={token}  isAdmin={isAdmin}/>;
+        }}
+      />
+
           <Route
         exact
         path="/Book/:id"
@@ -92,13 +112,7 @@ if (!isAdmin) {
         }}
       />
     
-       <Route
-        exact
-        path="/Home"
-        render={() => {
-          return <Home token={token} />;
-        }}
-        />
+    
     </div>
   );
 }

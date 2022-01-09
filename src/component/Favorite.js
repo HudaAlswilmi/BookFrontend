@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactAudioPlayer from "react-audio-player";
-
+import {GiReturnArrow} from "react-icons/gi"
 import axios from "axios";
-import "./Books.css";
+import "./Book.css";
 //  import { BsFillHeartFill } from "react-icons/bs";
 export default function Favirote({ token }) {
   const [Boking, setBoking] = useState([]);
@@ -61,13 +61,12 @@ export default function Favirote({ token }) {
 
   return (
     <>
-      <button
+      <button className="toogel"
         onClick={() => {
           changeTpgle();
         }}
       >
-        change
-      </button>
+<GiReturnArrow/>      </button>
       <div className="cards">
         {toggel === true
           ? Books.map((ele, i) => {

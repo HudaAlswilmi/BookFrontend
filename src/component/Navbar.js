@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {FaUserCheck} from "react-icons/fa"
+import {FaUserEdit} from "react-icons/fa"
+import {MdAddBox}from "react-icons/md"
 import { BsFillHeartFill } from "react-icons/bs";
+import {FaAudioDescription} from "react-icons/fa"
+import {FaBookOpen} from "react-icons/fa"
+import {HiOutlineReply} from "react-icons/hi"
 import "./Nav.css";
 export default function Navbar({ token, setToken ,setisAdmin,isAdmin}) {
 
@@ -10,34 +16,34 @@ export default function Navbar({ token, setToken ,setisAdmin,isAdmin}) {
   //stringify تقوم ب أستبدال القيمه الى قيمه أخرى 
   }
   return (
-    <div>
-      <nav>
+    <div id="navbar">
+      <nav >
       {token ? (
-        <ul>
-          <li>
+        <ul >
+          
             <Link
            onClick={() => {  logout(); }}
               to="/logIn"
             >
-              تسجيل الخروج
+              تسجيل الخروج <HiOutlineReply/>
             </Link>
-          </li>
-          { !isAdmin == true ? <>
+          
+            <Link to="/About">المؤلفين</Link>
 
-          <li>
+
+                
+          {!isAdmin == true ? <>
             <Link to="/Favorite">
               <BsFillHeartFill /> كُتبي
             </Link>
-          </li>       
-             </> :""}
+          </> :""}
+           
 
 
           {isAdmin == true ? <>
-            <li>
             <Link to="/addBook">
-              أضافة كتاب  
+              أضافة كتاب  <MdAddBox/>
             </Link>
-          </li>
           </> :""}
         
           {/* <li>
@@ -46,25 +52,19 @@ export default function Navbar({ token, setToken ,setisAdmin,isAdmin}) {
             </Link>
           </li> */}
           
-          <li>
-            <Link to="/Books">الكتب الصوتيه </Link>
-          </li>
-          <li>
-            <Link to="/Booking">الكتب المقروءه </Link>
-          </li>
+            <Link to="/Books">الكتب الصوتيه <FaAudioDescription/> </Link>
+            <Link to="/Booking">الكتب المقروءه <FaBookOpen/> </Link>
+            
+            <Link to="/Home">الرئيسيه</Link>
+
+          
          
         </ul>
       ) : (
         <ul>
-          <li>
-            <Link to="/logIn">تسجيل الدخول </Link>
-          </li>
-          <li>
-            <Link to="/SignUp">تسجيل جديد </Link>
-          </li> 
-          <li>
-            <Link to="/Home">الرئيسية </Link>
-          </li>
+            <Link to="/logIn">تسجيل الدخول <FaUserCheck/> </Link>
+            <Link to="/SignUp">تسجيل جديد <FaUserEdit/> </Link>
+            
           
         </ul>
       )}

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import BookAudio from "./BookAudio";
 import { useHistory } from "react-router-dom";
 import {BsFillHeartFill} from "react-icons/bs"
 //صفحة بيانات الكتب الصوتيه
 import axios from "axios";
-import "./Books.css";
+import "./Book.css";
 
 export default function Books({ token }) {
   const [Books, setBooks] = useState([]);
@@ -27,6 +26,7 @@ export default function Books({ token }) {
 
   const AddAudioLike = async (id) => {
     try {
+      console.log(id ,"id");
       const result = await axios.post(
         `http://localhost:5000/Favorite2/${id}`,
         {},
@@ -34,7 +34,7 @@ export default function Books({ token }) {
           headers: { authorization: "Bearer " + token },
         }
       );
-      console.log(result.data);
+      console.log("jjjj",result.data);
     } catch (error) {
       console.log(error.response.data);
     }
@@ -51,29 +51,29 @@ export default function Books({ token }) {
     <>
       <h1> $$ مكتبة أبجد $$ </h1>
 
-      <div className="div1">
+      <div className="cards">
         {Books.map((elemen, i) => {
           return (
             <div className="card">
-              <div>
-              <img
-                className="imgCard"
+   
+
+              <p className="nam1">{elemen.name}</p>
+               {/* <BookAudio url ={elemen.url} />  */}
+
+               <img
+              
                 src={elemen.img}
                 onClick={() => {
                   gotoBook(elemen._id);
                 }}
               />
-              </div>
-               <BsFillHeartFill
+              <br/>
+                  <BsFillHeartFill
                 className="HEART"
             onClick={()=>AddAudioLike(elemen._id)}
-              />
-<div>
-
-              <p className="nam1">{elemen.name}</p>
-               {/* <BookAudio url ={elemen.url} />  */}
+              /> 
                </div>
-            </div>
+         
           );
         })}
       </div>

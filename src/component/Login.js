@@ -31,14 +31,16 @@ export default function LogIn({ setToken, setisAdmin }) {
         setToken(res.data.token);
         console.log("token", res.data.token);
         localStorage.setItem("token", JSON.stringify(res.data.token));
-
+// اذا كانت قيمة الادمن صحيحه  يغير قيمة التوكن 
+// في اللوكل ستورج  يثبت قيمة التوكن 
+//JSON.stringify تستخدم في استبدال قيمة 
         setisAdmin(res.data.payload.isAdmin);
         console.log("isAdmin", res.data.payload.isAdmin);
         localStorage.setItem(
           "isAdmin",
           JSON.stringify(res.data.payload.isAdmin)
         );
-        history.push("/AddBook");
+        history.push("/Home");
       } else if (res.data.payload.isAdmin == false) {
         setToken(res.data.token);
         console.log("token", res.data.token);
@@ -50,7 +52,7 @@ export default function LogIn({ setToken, setisAdmin }) {
           "isAdmin",
           JSON.stringify(res.data.payload.isAdmin)
         );
-        history.push("/Booking");
+        history.push("/Home");
       }
     } catch (err) {
       console.log("errrror");
@@ -82,7 +84,7 @@ export default function LogIn({ setToken, setisAdmin }) {
         />
       </form>
       <br />
-      <button
+      <button className="logbut"
         onClick={() => {
           logIn();
         }}
