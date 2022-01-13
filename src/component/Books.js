@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import {BsFillHeartFill} from "react-icons/bs"
+import {AiTwotoneDelete} from "react-icons/ai"
 //صفحة بيانات الكتب الصوتيه
 import axios from "axios";
 import "./Book.css";
 
-export default function Books({ token }) {
+export default function Books({ token ,isAdmin}) {
   const [Books, setBooks] = useState([]);
   const history = useHistory();
 
@@ -41,6 +42,21 @@ export default function Books({ token }) {
     
   };
 
+  const deleteAudio = async (id, index) => {
+    console.log("jjjjjjjjjjj");
+    const deletes = await
+     axios.delete(`http://localhost:5000/AudioBooking/${id}`,{
+      headers: { authorization: "Bearer " + token },
+
+     });
+     console.log("LLLLLLLLLLLLLLLLLLL");
+    if (deletes.data ) {
+      const copyBook = [...Books];
+      console.log("ooooooooooooooo");
+      copyBook.splice(index, 1);
+      setBooks(copyBook);
+    }
+  }
 
   const gotoBook = async (id) => {
     history.push(`/AudioBook/${id}`);
@@ -49,19 +65,17 @@ export default function Books({ token }) {
 
   return (
     <>
-      <h1> $$ مكتبة أبجد $$ </h1>
 
-      <div className="cards">
+<div className="cards">
         {Books.map((elemen, i) => {
           return (
-            <div className="card">
+            <div className="card" key={i}>
    
 
               <p className="nam1">{elemen.name}</p>
                {/* <BookAudio url ={elemen.url} />  */}
 
                <img
-              
                 src={elemen.img}
                 onClick={() => {
                   gotoBook(elemen._id);
@@ -72,6 +86,16 @@ export default function Books({ token }) {
                 className="HEART"
             onClick={()=>AddAudioLike(elemen._id)}
               /> 
+                {!isAdmin == true ? <>
+              <button
+              onClick={() => {
+                deleteAudio(elemen._id ,i);
+              }}
+            ><AiTwotoneDelete/>
+              حذف 
+            </button>
+
+          </> :""}
                </div>
          
           );

@@ -14,8 +14,8 @@ export default function Home() {
         </div>
         {/* end navbar */}
                 <div className="welcomeTitle text-light col-md-5">
-                    <h1>أهلا وسهلا بكم </h1>
-                    <h1>مكتبة أبجد للكتب المسموعه و المقروءه </h1>
+                    <h1>أهلا وسهلا بكم مكتبه أبجد  </h1>
+                  
                     <h2>أسمع وأقراء كتاب وأفتح لعقلك ألف باب</h2>
 
                 </div>

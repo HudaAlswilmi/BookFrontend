@@ -48,14 +48,14 @@ if (!isAdmin) {
         exact
         path="/About"
         render={() => {
-          return <About token={token}  isAdmin={isAdmin}/>;
+          return <About token={token}  />;
         }}
       />
       <Route
         exact
         path="/Home"
         render={() => {
-          return <Home token={token}  isAdmin={isAdmin}/>;
+          return <Home token={token}  />;
         }}
       />
 

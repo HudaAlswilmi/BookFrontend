@@ -36,7 +36,7 @@ export default function Booking({ token ,isAdmin}) {
 
      });
      console.log("LLLLLLLLLLLLLLLLLLL");
-    if (deleteBook.data === "deleted") {
+    if (deletes.data) {
       const copyBook = [...Books];
       console.log("ooooooooooooooo");
       copyBook.splice(index, 1);
@@ -88,7 +88,7 @@ const AddlikBook = async (id) => {
 
   return (
     <div className="cards">
-                 {/* <input
+    {/* <input
     id="inputSearch"
     placeholder="search"
     onChange={(e) => {

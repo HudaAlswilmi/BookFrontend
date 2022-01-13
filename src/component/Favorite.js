@@ -75,6 +75,7 @@ export default function Favirote({ token }) {
                   <h1>{ele.name}</h1>
                   <p>{ele.descripion}</p>
                   <img src={ele.img} alr="No img" />
+                  <br/>
                   <a href={ele.url} target="_blank">
                     للقرأة أضغط هنا
                   </a>
@@ -91,7 +92,7 @@ export default function Favirote({ token }) {
             })
           : Boking.map((ele, i) => {
               return (
-                <div className="Audio1">
+                <div className="card">
                   <h1>{ele.name}</h1>
                   <p>{ele.descripion}</p>
                   <img src={ele.img} alr="No img" />

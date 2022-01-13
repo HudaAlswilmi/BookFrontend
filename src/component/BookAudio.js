@@ -64,44 +64,53 @@ export default function BookAudio({ token }) {
     {Commint:Commint},
     {headers: { authorization: "Bearer " + token }})
     console.log(result.data);
-    setBookAudio({...BookAudio , Commint: result.data})
+    setBookAudio({...BookAudio , Commint:result.data})
     } catch (err) {
         console.log(err.res.data,"error");
     }
 }
 
   return (
-    <div className="card">
+    <div >
       {BookAudio ? (
-        <div>
-          <img src={BookAudio.img} alr="No img" />
-
+        <div className="Book">
+          <br/>
+          <img className="imgsize" src={BookAudio.img} alr="No img" />
           <h1>{BookAudio.name}</h1>
+          <br/>
+
           <p>{BookAudio.descripion}</p>
 
-          <ReactAudioPlayer src={url} autoPlay={false} controls />
-          
-          <input
+        
+          <ReactAudioPlayer src={url} autoPlay={false} controls className="Player" />
+<br/>
+<br/>
+
+          <input className="inp"
             onChange={(e) => {
               changeCommint(e);
             }}
             type="text"
           />
-          <button
+      
+
+          <button className="btn"
             onClick={() => {
               addComment();
             }}
           >
+            <br/>
+
             اضف تعليق
           </button>
           <div>
             <h1>
               {BookAudio.Commint.map((elm, i) => {
                 return (
- <div key={i}>
+ <div key={i} >
                     <p> {elm.userName}</p>
                     <p>{elm.Commint}</p>
-                    <button onClick={()=>{deleteCommint(elm.comment)}}>delet </button>
+                    <button className="btn" onClick={()=>{deleteCommint(elm.comment)}}>delet </button>
 
                   </div>
                 );

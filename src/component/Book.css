@@ -1,23 +1,29 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
     margin: auto;
     text-align: center;
     font-family: arial;
     margin-top: 90px;
+    width: 300px;
+ 
 
   }
-
-
+  .card:hover {
+    transform: scale(1.1);
+    
+}
+.card img{
+  max-width: 200px;
+}
   
   .cards {
     color: grey;
     font-size: 22px;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap:wrap ;
       justify-content: space-around;
-  
-  
+
+
   
   }
   
@@ -63,11 +69,12 @@
   }
   .about1{
     border: black solid;
-    width: 700px;
+    width: 500px;
     height: 700px;
     text-align: center;
     margin-top: 100px;
     margin-left: 600px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLVy-4qz2UlBqrdPVL4VgY28KXCblZnojt-Q&usqp=CAU);
   }
   h1{
     text-align: center;
@@ -79,9 +86,93 @@
   }
   .about2{
     border: black solid;
-    width: 700px;
+    width: 500px;
     height: 700px;
     text-align: center;
     margin-top: 50px;
     margin-left: 200px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLVy-4qz2UlBqrdPVL4VgY28KXCblZnojt-Q&usqp=CAU);
   }
+  .imgsize{
+
+margin-left: 200px;
+height: 250px;
+width: 250;
+
+  }
+  .imgbook{
+    margin-left: 50px;
+    height: 300px;
+    width: 300;
+  }
+
+  .cardsAudio{
+    margin-top: 70px;
+    margin-left: 300px;
+position: absolute;
+    justify-content: center;
+        border: rgb(8, 8, 8) solid; 
+        width: 50%;
+        display: grid;
+        height: 800px;
+        
+    
+  }
+
+  .reding{
+    margin-left: 150px;
+  }
+  .btn{
+    border: none;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    font-size: 18px;
+    max-width: 300px;
+    margin-left: 210px;
+
+  }
+  .Player{
+    margin-left: 210px;
+  }
+  .btn:hover {
+    opacity: 0.7;
+  }
+  .inp{
+    margin-left: 210px;
+  
+
+  }
+  .Book{
+       margin-top: 70px;
+    margin-left: 300px;
+    justify-content: center;
+        border: rgb(8, 8, 8) solid; 
+        width: 50%;
+        display: grid;
+        height: 1000px;
+  }
+  .Book1{
+    margin-top: 70px;
+    margin-left: 300px;
+    justify-content: center;
+        border: rgb(8, 8, 8) solid; 
+        width: 40%;
+        display: grid;
+        height: 1000px;
+  }
+  p{
+    text-align: center;
+  }
+  
+.inp1{
+  margin-left: 50px;
+}
+.btn1{
+  border: none;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    font-size: 18px;
+    max-width: 200px;
+    margin-left: 100px;}

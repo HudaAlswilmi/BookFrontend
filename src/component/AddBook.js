@@ -46,7 +46,7 @@ export default function AddBook({token}) {
   const addurl = (e) => {
     seturl(e.target.value);
   }
-  const postBook = async (id) => {
+  const postBooks = async (id) => {
     const result = await axios.post(
       "http://localhost:5000/AudioBooking",
       {
@@ -65,19 +65,34 @@ export default function AddBook({token}) {
     settoggel(!toggel);
   };
 
-
+  const postBook = async (id) => {
+    const result = await axios.post(
+      "http://localhost:5000/Book",
+      {
+        name,
+        img,
+        descripion,
+        url,
+      },
+      { headers: { authorization: `Bearer ${token}` } }
+    );
+    history.push(`/Booking`);
+    console.log(" you go to the boook");
+  };
 
  
-  return (<>
+  return (<> <div>
     <button className="toogel"
     onClick={() => {
       changeTpgle();
     }}
   >
 <GiReturnArrow/>  
-    </button>
+    </button> 
+    {toggel === true ? 
 
-    <div className="addBokdiv">   
+    <div className="addBokdiv">  
+ 
       <br/>
       <br/>  
       <br/>  
@@ -133,7 +148,7 @@ export default function AddBook({token}) {
       <br/>
       <button className="but1"
         onClick={() => {
-          postBook();
+          postBooks();
         }}
       >
         أضافة كتاب
@@ -141,8 +156,63 @@ export default function AddBook({token}) {
     
     </div>
 
-  
+  : 
+  <div className="addBokdiv">  
 
+    <br/>
+    <br/>  
+    <br/>  
+
+     <input 
+      onChange={(e) => {
+        addname(e);
+      }}
+      type="text"
+      placeholder="أدخل أسم الكتاب "
+    ></input>
+
+    <br/>
+    <br/>  
+    <br/>
+    <input   onChange={(e) => {
+        addimg(e);
+      }}
+      type="text"
+      placeholder="أدخل رابط الصوره  "></input>
+        <br/>
+        <br/>
+    <br/>  
+    <br/>
+    <input  onChange={(e) => {
+        adddescripion(e);
+      }}
+      type="text"
+      placeholder="أدخل وصف الكتاب   "></input>
+        <br/>
+        <br/>
+    <br/>  
+    <br/>
+
+    <input  onChange={(e) => {
+        addurl(e);
+      }}
+      type="text"
+      placeholder="أدخل رابط الكتاب   "></input>
+ 
+        <br/>
+        <br/>
+    <br/>  
+    <br/>
+    <button className="but1"
+      onClick={() => {
+        postBook();
+      }}
+    >
+      أضافة كتاب
+    </button>
+  
+  </div>}
+</div>
     </>
 
   );
