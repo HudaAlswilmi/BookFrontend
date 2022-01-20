@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import {BsFillHeartFill} from "react-icons/bs"
+import {FcLike} from "react-icons/fc"
 import {AiTwotoneDelete} from "react-icons/ai"
 
 import axios from "axios";
@@ -19,7 +19,7 @@ export default function Booking({ token ,isAdmin}) {
 
   useEffect(async () => {
     console.log(token);
-    const res = await axios.get("http://localhost:5000/Booking", {
+    const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/Booking`, {
       headers: { authorization: "Bearer " + token },
     });
     //يظهر البيانات مرة وحده ب استخدام الميثود قيت
@@ -31,7 +31,7 @@ export default function Booking({ token ,isAdmin}) {
   const deleteBook = async (id, index) => {
     console.log("jjjjjjjjjjj");
     const deletes = await
-     axios.delete(`http://localhost:5000/BoooK/${id}`,{
+     axios.delete(`${process.env.REACT_APP_BACKEND_URL}/BoooK/${id}`,{
       headers: { authorization: "Bearer " + token },
 
      });
@@ -71,7 +71,7 @@ const AddlikBook = async (id) => {
   console.log(id,"id");
   try {
     const result = await axios.post(
-      `http://localhost:5000/Favorite/${id}`,
+      `${process.env.REACT_APP_BACKEND_URL}/Favorite/${id}`,
       {},
       {
         headers: { authorization: "Bearer " + token },
@@ -117,7 +117,7 @@ const AddlikBook = async (id) => {
           <div className="card" key={i}>
             <h1>{ele.name}</h1>
             <p>{ele.descripion}</p>
-            <img 
+            <img className="di"
               src={ele.img}
               onClick={() => {
                 gotoBook(ele._id);
@@ -127,11 +127,11 @@ const AddlikBook = async (id) => {
             <br/>
 
             
-            <BsFillHeartFill
+            <FcLike
                 className="HEART"
             onClick={()=>AddlikBook(ele._id)}
               />
-             {!isAdmin == true ? <>
+             {isAdmin == true ? <>
               <button
               onClick={() => {
                 deleteBook(ele._id ,i);

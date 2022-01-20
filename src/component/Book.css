@@ -1,5 +1,5 @@
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(160, 158, 158, 0.2);
     margin: auto;
     text-align: center;
     font-family: arial;
@@ -32,7 +32,7 @@
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #000;
+    background-color: rgb(8, 8, 8);
     text-align: center;
     cursor: pointer;
     width: 100%;
@@ -58,7 +58,9 @@
   }
   .HEART{
     color: black;
-    border-radius: 40px;
+text-shadow: 5px 5px 15px rgb(250, 39, 1) ;
+border-radius: 40px;
+
     height: 20px;
     width: 20px;
   }
@@ -69,110 +71,46 @@
   }
   .about1{
     border: black solid;
-    width: 500px;
-    height: 700px;
+    width: 50%;
+    height: 90%;
     text-align: center;
     margin-top: 100px;
-    margin-left: 600px;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLVy-4qz2UlBqrdPVL4VgY28KXCblZnojt-Q&usqp=CAU);
+    margin-left: 400px;
+    color: cornsilk;
+    text-shadow: black;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfidmbDV-hAJW9BmSO4OQD2ak_LgWAqdL4pw&usqp=CAU);
   }
   h1{
     text-align: center;
   }
   .order1{
     margin-left: 20px;
-    color: navy;
+    color: rgb(242, 242, 247);
 
   }
-  .about2{
-    border: black solid;
-    width: 500px;
-    height: 700px;
-    text-align: center;
-    margin-top: 50px;
-    margin-left: 200px;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLVy-4qz2UlBqrdPVL4VgY28KXCblZnojt-Q&usqp=CAU);
-  }
-  .imgsize{
 
-margin-left: 200px;
-height: 250px;
-width: 250;
-
-  }
-  .imgbook{
-    margin-left: 50px;
-    height: 300px;
-    width: 300;
-  }
-
-  .cardsAudio{
-    margin-top: 70px;
-    margin-left: 300px;
-position: absolute;
-    justify-content: center;
-        border: rgb(8, 8, 8) solid; 
-        width: 50%;
-        display: grid;
-        height: 800px;
-        
-    
-  }
-
-  .reding{
-    margin-left: 150px;
-  }
-  .btn{
-    border: none;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    font-size: 18px;
-    max-width: 300px;
-    margin-left: 210px;
-
-  }
-  .Player{
-    margin-left: 210px;
-  }
-  .btn:hover {
-    opacity: 0.7;
-  }
-  .inp{
-    margin-left: 210px;
-  
-
-  }
-  .Book{
-       margin-top: 70px;
-    margin-left: 300px;
-    justify-content: center;
-        border: rgb(8, 8, 8) solid; 
-        width: 50%;
-        display: grid;
-        height: 1000px;
-  }
-  .Book1{
-    margin-top: 70px;
-    margin-left: 300px;
-    justify-content: center;
-        border: rgb(8, 8, 8) solid; 
-        width: 40%;
-        display: grid;
-        height: 1000px;
-  }
+ 
   p{
     text-align: center;
-  }
   
-.inp1{
-  margin-left: 50px;
+  }
+
+.di{
+  height: 200px;
 }
-.btn1{
-  border: none;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    font-size: 18px;
-    max-width: 200px;
-    margin-left: 100px;}
+
+    body {
+      background-color: lightblue;
+    }
+    
+    @media screen and (min-width: 400px) {
+      body {
+        background-color: lightgreen;
+      }
+    }
+    
+    @media screen and (min-width: 800px) {
+      body {
+        background-color: lavender;
+      }
+    }

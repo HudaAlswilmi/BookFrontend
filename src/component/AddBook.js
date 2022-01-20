@@ -48,7 +48,7 @@ export default function AddBook({token}) {
   }
   const postBooks = async (id) => {
     const result = await axios.post(
-      "http://localhost:5000/AudioBooking",
+      `${process.env.REACT_APP_BACKEND_URL}/AudioBooking`,
       {
         name,
         img,
@@ -67,7 +67,7 @@ export default function AddBook({token}) {
 
   const postBook = async (id) => {
     const result = await axios.post(
-      "http://localhost:5000/Book",
+      `${process.env.REACT_APP_BACKEND_URL}/Book`,
       {
         name,
         img,
@@ -115,23 +115,25 @@ export default function AddBook({token}) {
         placeholder="أدخل رابط الصوره  "></input>
           <br/>
           <br/>
-      <br/>  
-      <br/>
+          <br/>
+
       <input  onChange={(e) => {
           adddescripion(e);
         }}
         type="text"
         placeholder="أدخل وصف الكتاب   "></input>
-          <br/>
-          <br/>
-      <br/>  
-      <br/>
+         <br/>
+         <br/>
+         <br/>
+
 
       <input  onChange={(e) => {
           addurl(e);
         }}
         type="text"
         placeholder="أدخل رابط الكتاب   "></input>
+            <br/>
+
             <form>
       <label>
         <input type="file" onChange={handleChange} />
@@ -142,9 +144,7 @@ export default function AddBook({token}) {
         { file && <ProgressBar file={file} setFile={setFile} seturl={seturl}/> }
       </div>
     </form>
-          <br/>
-          <br/>
-      <br/>  
+        
       <br/>
       <button className="but1"
         onClick={() => {
@@ -160,8 +160,6 @@ export default function AddBook({token}) {
   <div className="addBokdiv">  
 
     <br/>
-    <br/>  
-    <br/>  
 
      <input 
       onChange={(e) => {
@@ -170,9 +168,9 @@ export default function AddBook({token}) {
       type="text"
       placeholder="أدخل أسم الكتاب "
     ></input>
-
     <br/>
-    <br/>  
+    <br/>
+
     <br/>
     <input   onChange={(e) => {
         addimg(e);
@@ -180,9 +178,9 @@ export default function AddBook({token}) {
       type="text"
       placeholder="أدخل رابط الصوره  "></input>
         <br/>
-        <br/>
-    <br/>  
+    <br/> 
     <br/>
+ 
     <input  onChange={(e) => {
         adddescripion(e);
       }}
@@ -190,19 +188,18 @@ export default function AddBook({token}) {
       placeholder="أدخل وصف الكتاب   "></input>
         <br/>
         <br/>
-    <br/>  
-    <br/>
+        <br/>
+
 
     <input  onChange={(e) => {
         addurl(e);
       }}
       type="text"
       placeholder="أدخل رابط الكتاب   "></input>
- 
-        <br/>
-        <br/>
-    <br/>  
-    <br/>
+     <br/>
+     <br/>
+     <br/>
+
     <button className="but1"
       onClick={() => {
         postBook();
@@ -221,4 +218,3 @@ export default function AddBook({token}) {
 
 
 
-// {toggel === true ?{} : {} }

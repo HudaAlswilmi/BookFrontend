@@ -13,7 +13,7 @@ export default function BookAudio({ token }) {
 
   useEffect(async () => {
     console.log("jjjjjjjjjjjjjjjj");
-    const result = await axios.get(`http://localhost:5000/AudioBook/${id}`, {
+    const result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/AudioBook/${id}`, {
       headers: { authorization: "Bearer " + token },
     });
     console.log("iddddd", id);
@@ -28,7 +28,7 @@ export default function BookAudio({ token }) {
     console.log("jjjjj");
     try {
       const result = await axios.post(
-        `http://localhost:5000/Commint/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/Commint/${id}`,
         {
           Commint: Commint,
         },
@@ -59,7 +59,7 @@ export default function BookAudio({ token }) {
 
   const deleteCommint =async (Commint)=>{
     try {
-        const result = await axios.put(`http://localhost:5000/Commint/${id}`,
+        const result = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/Commint/${id}`,
 
     {Commint:Commint},
     {headers: { authorization: "Bearer " + token }})
@@ -73,33 +73,34 @@ export default function BookAudio({ token }) {
   return (
     <div >
       {BookAudio ? (
-        <div className="Book">
-          <br/>
-          <img className="imgsize" src={BookAudio.img} alr="No img" />
+    <div className="oneBookWrapper">
+    <br/>
+    <div className="book1">
+
+          <img className="oneBookImg" src={BookAudio.img} alr="No img" />
           <h1>{BookAudio.name}</h1>
           <br/>
 
           <p>{BookAudio.descripion}</p>
 
         
-          <ReactAudioPlayer src={url} autoPlay={false} controls className="Player" />
-<br/>
+          <ReactAudioPlayer src={url} autoPlay={false} controls className="redingOneBook" />
+          </div>
 <br/>
 
-          <input className="inp"
+          <input className="inp1OneBook"
             onChange={(e) => {
               changeCommint(e);
             }}
             type="text"
           />
       
-
-          <button className="btn"
+<br/>
+          <button className="btn1OneBook"
             onClick={() => {
               addComment();
             }}
           >
-            <br/>
 
             اضف تعليق
           </button>

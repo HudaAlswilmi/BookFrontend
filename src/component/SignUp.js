@@ -21,7 +21,7 @@ export default function SinUp() {
     setPass(e.target.value);
   };
   const AddUser = async () => {
-    const res = await axios.post("http://localhost:5000/SignUp", {
+    const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/SignUp`, {
       name,
       email,
       pass,

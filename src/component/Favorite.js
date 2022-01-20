@@ -13,7 +13,7 @@ export default function Favirote({ token }) {
   useEffect(async () => {
     try {
       if (token) {
-        const reult = await axios.get("http://localhost:5000/Favorite", {
+        const reult = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/Favorite`, {
           headers: { authorization: "Bearer " + token },
         });
         setBooks(reult.data);
@@ -27,7 +27,7 @@ export default function Favirote({ token }) {
   useEffect(async () => {
     try {
       if (token) {
-        const reult = await axios.get("http://localhost:5000/Favorite2", {
+        const reult = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/Favorite2`, {
           headers: { authorization: "Bearer " + token },
         });
         setBoking(reult.data);
@@ -39,7 +39,7 @@ export default function Favirote({ token }) {
   }, [token]);
 
   const remove= async (id) => {
-    const res = await axios.delete(`http://localhost:5000/Favorite2/${id}`, {
+    const res = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/Favorite2/${id}`, {
       headers: { authorization: "Bearer " + token },
     });
     console.log(res.data);
@@ -48,7 +48,7 @@ export default function Favirote({ token }) {
 
 
   const removeFav = async (id) => {
-    const res = await axios.delete(`http://localhost:5000/Favorite/${id}`, {
+    const res = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/Favorite/${id}`, {
       headers: { authorization: "Bearer " + token },
     });
     console.log(res.data);
@@ -73,7 +73,6 @@ export default function Favirote({ token }) {
               return (
                 <div className="card">
                   <h1>{ele.name}</h1>
-                  <p>{ele.descripion}</p>
                   <img src={ele.img} alr="No img" />
                   <br/>
                   <a href={ele.url} target="_blank">
@@ -94,7 +93,6 @@ export default function Favirote({ token }) {
               return (
                 <div className="card">
                   <h1>{ele.name}</h1>
-                  <p>{ele.descripion}</p>
                   <img src={ele.img} alr="No img" />
                   <ReactAudioPlayer src={url} autoPlay={false} controls />
                   <button

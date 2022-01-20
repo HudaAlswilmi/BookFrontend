@@ -31,7 +31,7 @@ export default function AddBook({token}) {
   const Update = async (id) => {
       try {
           console.log(id,"id");
-          const updateP = await axios.put( `http://localhost:5000/BoooK/${id}`, {
+          const updateP = await axios.put( `${process.env.REACT_APP_BACKEND_URL}/BoooK/${id}`, {
             name,
             
             descripion

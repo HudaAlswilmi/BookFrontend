@@ -12,8 +12,10 @@ import UpdetBook from "./component/UpdetBook"
 import Book  from "./component/Book"
 import About from "./component/About";
 import Home from "./component/Home"
+require('dotenv').config()
+
 function App() { 
-  
+  console.log(process.env.REACT_APP_BACKEND_URL);
 const [token, setToken] = useState("");
 const [isAdmin, setisAdmin] = useState(false);
 
@@ -32,6 +34,10 @@ if (!isAdmin) {
 }
 
 }, [token])
+
+
+
+
   return (
     <div className="App">
 <Navbar token={token} setToken={setToken}  isAdmin={isAdmin}  setisAdmin={setisAdmin}/>

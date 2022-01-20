@@ -1,0 +1,42 @@
+.oneBookWrapper{
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 50%;
+margin: auto;
+border-radius: 20px ;
+border: black solid;
+background-color:rgb(252, 251, 248);
+margin-top: 50px;
+
+}
+.book1{
+    width: 50%;
+    margin: auto;
+}
+.oneBookImg{
+    height: 200px;
+    width: 100%;
+}
+.redingOneBook{
+    width: 90%;
+    margin-left:10%;
+}
+.inp1OneBook{
+    width: 90%;
+    margin: auto;
+
+}
+.btn1OneBook{
+    width: 90%;
+    height: 40px;
+    margin: auto; 
+    border: none;
+    color: white;
+    background-color: #000;
+    text-align: center;
+}
+.btn1OneBook:hover {
+    opacity: 0.7;
+
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import {BsFillHeartFill} from "react-icons/bs"
+import {FcLike} from "react-icons/fc"
 import {AiTwotoneDelete} from "react-icons/ai"
 //صفحة بيانات الكتب الصوتيه
 import axios from "axios";
@@ -14,7 +14,7 @@ export default function Books({ token ,isAdmin}) {
 
   useEffect(async () => {
     console.log(token);
-    const res = await axios.get("http://localhost:5000/AudioBook", {
+    const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/AudioBook`, {
       headers: { authorization: "Bearer " + token },
     });
     //يظهر البيانات مرة وحده ب استخدام الميثود قيت
@@ -29,7 +29,7 @@ export default function Books({ token ,isAdmin}) {
     try {
       console.log(id ,"id");
       const result = await axios.post(
-        `http://localhost:5000/Favorite2/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/Favorite2/${id}`,
         {},
         {
           headers: { authorization: "Bearer " + token },
@@ -45,7 +45,7 @@ export default function Books({ token ,isAdmin}) {
   const deleteAudio = async (id, index) => {
     console.log("jjjjjjjjjjj");
     const deletes = await
-     axios.delete(`http://localhost:5000/AudioBooking/${id}`,{
+     axios.delete(`${process.env.REACT_APP_BACKEND_URL}/AudioBooking/${id}`,{
       headers: { authorization: "Bearer " + token },
 
      });
@@ -75,18 +75,20 @@ export default function Books({ token ,isAdmin}) {
               <p className="nam1">{elemen.name}</p>
                {/* <BookAudio url ={elemen.url} />  */}
 
-               <img
+               <img className="di"
                 src={elemen.img}
                 onClick={() => {
                   gotoBook(elemen._id);
                 }}
               />
               <br/>
-                  <BsFillHeartFill
+              {isAdmin == true ? <>
+                  <FcLike
                 className="HEART"
             onClick={()=>AddAudioLike(elemen._id)}
               /> 
-                {!isAdmin == true ? <>
+              </> :""}
+                {isAdmin == true ? <>
               <button
               onClick={() => {
                 deleteAudio(elemen._id ,i);
