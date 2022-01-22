@@ -82,12 +82,10 @@ export default function Books({ token ,isAdmin}) {
                 }}
               />
               <br/>
-              {isAdmin == true ? <>
                   <FcLike
                 className="HEART"
             onClick={()=>AddAudioLike(elemen._id)}
               /> 
-              </> :""}
                 {isAdmin == true ? <>
               <button
               onClick={() => {
