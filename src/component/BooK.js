@@ -14,7 +14,7 @@ export default function Book({ token , isAdmin}) {
 
 
   useEffect(async () => {
-    const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/${id}`, {
+    const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/Book/${id}`, {
       headers: { authorization: "Bearer " + token },
     });
     // console.log("iddddd", id);

@@ -131,7 +131,7 @@ const AddlikBook = async (id) => {
                 className="HEART"
             onClick={()=>AddlikBook(ele._id)}
               />
-             {isAdmin == true ? <>
+             {!isAdmin == true ? <>
               <button
               onClick={() => {
                 deleteBook(ele._id ,i);

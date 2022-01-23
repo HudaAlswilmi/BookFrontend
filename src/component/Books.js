@@ -86,7 +86,7 @@ export default function Books({ token ,isAdmin}) {
                 className="HEART"
             onClick={()=>AddAudioLike(elemen._id)}
               /> 
-                {isAdmin == true ? <>
+                {!isAdmin == true ? <>
               <button
               onClick={() => {
                 deleteAudio(elemen._id ,i);
